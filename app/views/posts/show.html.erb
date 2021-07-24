@@ -10,5 +10,10 @@
   <%= @post.body %>
 </p>
 
+<div class="comments">
+<%= render 'comments/form'%>
+  <%= @post.comments.count %> comments
+</div>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
