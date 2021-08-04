@@ -31,6 +31,9 @@ gem 'bulma-rails', '~> 0.9.1'
 # Upload files in your Ruby applications, map them to a range of ORMs, store them on different backends.
 gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 
+# Flexible authentication solution for Rails with Warden
+gem 'devise', '~> 4.8'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
