@@ -2,12 +2,17 @@
 
   <div class="field">
     <%= form.label :body %>
-    <%= form.text_area :body %>
+    <div class="control">
+      <%= form.text_area :body, class:"input" %>
+    </div>
+    
   </div>
 
   <div class="field">
-    <%= form.label :post_id %>
-    <%= form.text_field :post_id %>
+    <%= form.label :post_id, class:"label" %>
+    <div class="control">
+      <%= form.text_field :post_id, class:"input" %>
+    </div>
   </div>
 
   <div class="actions">

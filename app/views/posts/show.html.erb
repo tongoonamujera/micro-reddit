@@ -1,18 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
-<%= @post.comments.count %>
-<div class="comments">
-  <%= render 'comments/form', comment: @comment %>
+<div class="card">
+  <header class="card-header">
+    <p>
+      <strong>Title:</strong>
+      <%= @post.title %>
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <p>
+        <strong>Body:</strong>
+        <%= @post.body %>
+      </p>
+    </div>
+    <%= @post.comments.count %>Comments
+    <div class="comments">
+      <%= render 'comments/form', comment: @comment %>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <%= link_to 'Edit', edit_post_path(@post), class:"card-footer-item button is-link" %> 
+    <%= link_to 'Back', posts_path, class:"card-footer-item button is-link" %>
+  </footer>
 </div>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
