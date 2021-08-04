@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[ show edit update destroy ]
+  # before_action :set_comment, only: %i[ show edit update destroy ]
 
   # GET /comments or /comments.json
   def index
@@ -12,7 +12,9 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comment = Comment.new
+    # @comment = Comment.new
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.build(comment_params)
   end
 
   # GET /comments/1/edit
@@ -22,9 +24,12 @@ class CommentsController < ApplicationController
   # POST /comments or /comments.json
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(comment_params[:comment])
-
-    redirect_to post_path(@post)
+    @comment = @post.comments.create(comment_params)
+    if @comment.save
+      redirect_to post_path(@post)
+    else
+      render 'nul'
+    end
 
     # respond_to do |format|
     #   if @comment.save

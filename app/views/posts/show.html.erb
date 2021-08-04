@@ -15,6 +15,10 @@
         <%= @post.body %>
       </p>
     </div>
+    <div class="section has-background-light">
+      <%= render 'comments/comment' %>
+    </div>
+    
     <%= @post.comments.count %>Comments
     <div class="comments">
       <%= render 'comments/form', comment: @comment %>
