@@ -9,10 +9,9 @@
   <strong>Body:</strong>
   <%= @post.body %>
 </p>
-
+<%= @post.comments.count %>
 <div class="comments">
-<%= render 'comments/form'%>
-  <%= @post.comments.count %> comments
+  <%= render 'comments/form', comment: @comment %>
 </div>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
