@@ -65,7 +65,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1 or /comments/1.json
   def destroy
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(comment_params)
+    @comment = @post.comments.find(params[:id])
     @comment.destroy
     redirect_to post_path(@post)
     # respond_to do |format|
