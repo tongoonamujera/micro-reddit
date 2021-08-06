@@ -1,29 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="card mx-5 my-4">
+    <header class="card-header">
+      <%= post.user.email %>
+    </header>
+    <div class="card-content">
+      <%= post.title %><br>
+      <%= post.body %><br>
+    </div>
+    <footer class="card-footer">
+      <%= link_to 'Show', post, class:"card-footer-item button is-link mx-5" %>
+      <%= link_to 'Edit', edit_post_path(post), class:"card-footer-item button is-link mx-5" %>
+      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class:"card-footer-item button is-danger mx-5" %>
+    </footer>
+    </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
 <%= link_to 'New Post', new_post_path %>
