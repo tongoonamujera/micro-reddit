@@ -1,5 +1,11 @@
-<h1>New Post</h1>
-
-<%= render 'form', post: @post %>
-
-<%= link_to 'Back', posts_path %>
+<div class="card is-11">
+  <header class="card-header">
+    <h1>New Post</h1>
+  </header>
+  <div class="card-content">
+    <%= render 'form', post: @post %>
+  </div>
+  <footer class="card-footer">
+    <%= link_to 'Back', posts_path, class:"button is-dark" %>
+  </footer>
+</div>
