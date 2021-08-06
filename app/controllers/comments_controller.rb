@@ -3,7 +3,14 @@ class CommentsController < ApplicationController
 
   # GET /comments or /comments.json
   def index
-    @comments = Comment.all
+    # @comments = Comment.all
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.create(comment_params)
+    if @comment.save
+      redirect_to post_path(@post)
+    else
+      render 'nul'
+    end
   end
 
   # GET /comments/1 or /comments/1.json
