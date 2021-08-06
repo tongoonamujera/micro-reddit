@@ -35,18 +35,25 @@
           </div>
         </div>
 
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-              <a class="button is-light">
-                Log in
-              </a>
+        <% if user_signed_in? %>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <%= link_to 'Edit Account', edit_user_registration_path, class:"button is-light" %>
+                <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class:"button is-light" %>
+              </div>
             </div>
           </div>
-        </div>
+        <% else %>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <%= link_to 'Sign Up', new_user_registration_path, class:"button is-light" %>
+                <%= link_to 'Log In', new_user_session_path, class:"button is-light" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
     </nav>
 
@@ -64,7 +71,3 @@
     </div>
   </div>
 </section>
-
-<% unless user_signed_in? %>
-<% else %>
-<% end %>
