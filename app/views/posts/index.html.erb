@@ -7,6 +7,24 @@
     <div class="card-content">
       <%= post.title %><br>
       <%= post.body %><br>
+      <div class="section has-background-light">
+        <div>
+          <%= post.comments.count %> Comments
+        </div>
+        <% post.comments.each do |comment| %>
+          <div class="columns">
+            <div class="column is-10">
+              <strong>
+              <%= comment.user.email %>:
+              </strong>
+              <%= comment.body %>
+              </div>
+              <div class="column is-2 is-centered">
+                <%= link_to 'Delete', [comment.post, comment], method: :delete, class:"button is-danger", data: {confirm: "Are you sure you want to delete this comment"}%>
+              </div>
+          </div>
+        <% end %>
+      </div>
     </div>
     <footer class="card-footer">
       <%= link_to 'Comment', post, class:"card-footer-item button is-link mx-5" %>
@@ -15,4 +33,4 @@
     </footer>
     </div>
     <% end %>
-<%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Post', new_post_path, class:"button is-success" %>
