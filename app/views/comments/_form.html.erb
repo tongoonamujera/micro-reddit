@@ -9,10 +9,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :post_id, class:"label" %>
-    <div class="control">
-      <%= form.text_field :post_id, class:"input" %>
-    </div>
+      <%= form.text_field :post_id, class:"input", value: @post.id, type: :hidden  %>
   </div>
 
   <div class="field">
