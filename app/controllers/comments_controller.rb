@@ -34,8 +34,6 @@ class CommentsController < ApplicationController
     @comment = @post.comments.create(comment_params)
     if @comment.save
       redirect_to post_path(@post)
-    else
-      render 'nul'
     end
 
     # respond_to do |format|
