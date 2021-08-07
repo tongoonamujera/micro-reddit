@@ -17,6 +17,10 @@
     <% if notice %>
       <p id="notice" class="has-background-warning"><%= notice %></p>
     <% end %>
+    <% if alert %>
+      <p id="notice" class="has-background-danger"><%= alert %></p>
+    <% end %>
+    <%# # <%= flash[:alert] %>
       <%= yield %> 
     </div>
   </body>
