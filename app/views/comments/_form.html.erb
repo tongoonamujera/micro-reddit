@@ -1,0 +1,22 @@
+<%= form_for([@post, Comment.new]) do |form| %>
+
+  <div class="field">
+    <%= form.label :body %>
+    <div class="control">
+      <%= form.text_area :body, class:"input" %>
+    </div>
+    
+  </div>
+
+  <div class="field">
+      <%= form.text_field :post_id, class:"input", value: @post.id, type: :hidden  %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :user_id, value: current_user.id, type: :hidden %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="card">
+  <header class="card-header">
+  <p>
+    <strong>Email:</strong>
+    <%= @post.user.email %>
+  </p>
+    <p>
+      <strong>Title:</strong>
+      <%= @post.title %>
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <p>
+        <strong>Body:</strong>
+        <%= @post.body %>
+      </p>
+    </div>
+    <%= @post.comments.count %>Comments
+    <div class="section has-background-light">
+      <%= render 'comments/comment' %>
+    </div>
+
+    <div class="card">
+      <header class="card-header">
+        <h1 class="columns is-centered mt-5">
+          <strong class="column is-centered">Add Comments</strong>
+        </h1>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <div class="comments">
+            <%= render 'comments/form', comment: @comment %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <%= link_to 'Edit', edit_post_path(@post), class:"card-footer-item button is-link" %> 
+    <%= link_to 'Back', posts_path, class:"card-footer-item button is-link" %>
+  </footer>
+</div>
