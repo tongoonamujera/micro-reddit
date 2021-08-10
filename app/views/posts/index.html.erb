@@ -1,4 +1,6 @@
 <h1>Posts</h1>
+<div class="columns is-centered">
+  <div class="column is-9">
     <% @posts.each do |post| %>
     <div class="card mx-5 my-4">
     <header class="card-header">
@@ -7,6 +9,7 @@
     <div class="card-content">
       <%= post.title %><br>
       <%= post.body %><br>
+      <img src="<%= post.image %>"/>
       <div class="section has-background-light">
         <div>
           <%= post.comments.count %> Comments
@@ -27,10 +30,19 @@
       </div>
     </div>
     <footer class="card-footer">
-      <%= link_to 'Comment', post, class:"card-footer-item button is-link mx-5" %>
-      <%= link_to 'Edit', edit_post_path(post), class:"card-footer-item button is-link mx-5" %>
-      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class:"card-footer-item button is-danger mx-5" %>
+      <div class="card-footer-item">
+        <%= link_to 'Comment', post, class:"button is-link mx-5" %>
+      </div>
+      <div class="card-footer-item">
+        <%= link_to 'Edit', edit_post_path(post), class:"button is-link mx-5" %>
+      </div>
+      <div class="card-footer-item">
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class:"button is-danger mx-5" %>
+      </div>
     </footer>
     </div>
     <% end %>
+  </div>
+</div>
+    
 <%= link_to 'New Post', new_post_path, class:"button is-success" %>

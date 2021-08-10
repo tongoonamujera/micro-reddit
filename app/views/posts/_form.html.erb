@@ -26,6 +26,13 @@
   </div>
 
   <div class="field">
+    <%= form.label :image, class:"label" %>
+    <div class="control">
+      <%= form.file_field :image, class:"input" %>
+    </div>
+  </div>
+
+  <div class="field">
     <%= form.text_field :user_id, value: current_user.id, type: :hidden %>
   </div>
 
